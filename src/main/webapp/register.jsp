@@ -29,7 +29,7 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Create an Account!</h4>
                             </div>
-                            <form class="user" method="post" action="register" onsubmit="return validateRegister()">
+                            <form class="user" method="post" action="register">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
                                             type="text" id="exampleFirstName" placeholder="First Name"
@@ -42,7 +42,7 @@
                                         name="email"></div>
                                 <div class="form-group"><input class="form-control form-control-user" type="text"
                                         id="exampleInputnumber" aria-describedby="numberHelp"
-                                        placeholder="(1234)-567-890" name="number" ></div>
+                                        placeholder="(1234)-567-890" name="number"></div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"

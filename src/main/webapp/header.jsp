@@ -5,11 +5,11 @@
     response.setDateHeader("Expires", -1);
 
 %>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
     integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/my.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
 <h1 class="text-center text-white d-none d-lg-block site-heading"><span class="text-primary site-heading-upper mb-3">we
         provide quality food on time</span><span class="site-heading-lower">Not Africa</span></h1>
 <nav class="navbar navbar-light navbar-expand-lg bg-dark py-lg-4" id="mainNav">
@@ -43,7 +43,6 @@
                     <li class="nav-item shadow-none mb-2" role="presentation"><a
                             class="nav-link bg-warning border rounded border-warning" href="logout">LOGOUT</a></li>
                 </c:if>
-
             </ul>
         </div>
     </div>
