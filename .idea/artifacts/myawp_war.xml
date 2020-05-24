@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="myawp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>myawp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="myawp-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="myawp:war exploded" />
+    </root>
+  </artifact>
+</component>

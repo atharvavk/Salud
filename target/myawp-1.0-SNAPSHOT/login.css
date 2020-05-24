@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
+
+:root {
+    --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(47, 23, 15, 0), rgba(47, 23, 15, 0)), url('assets/img/bg2.jpg');
+    background-repeat: repeat-y;
+}
+
+form.user .form-control-user {
+    font-size: .8rem;
+    border-radius: 10rem;
+    padding: 1.5rem 1rem
+}
+
+form.user .btn-user {
+    font-size: .8rem;
+    border-radius: 10rem;
+    padding: .75rem 1rem
+}
+
+.btn-google {
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #fff
+}
+
+.btn-google.focus,
+.btn-google:focus,
+.btn-google:hover {
+    color: #fff;
+    background-color: #e12717;
+    border-color: #e6e6e6
+}
+
+.btn-google.focus,
+.btn-google:focus {
+    box-shadow: 0 0 0 .2rem hsla(0, 0%, 100%, .5)
+}
+
+.btn-google.disabled,
+.btn-google:disabled {
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #fff
+}
+
+.btn-google:not(:disabled):not(.disabled).active,
+.btn-google:not(:disabled):not(.disabled):active,
+.show>.btn-google.dropdown-toggle {
+    color: #fff;
+    background-color: #d62516;
+    border-color: #dfdfdf
+}
+
+.btn-google:not(:disabled):not(.disabled).active:focus,
+.btn-google:not(:disabled):not(.disabled):active:focus,
+.show>.btn-google.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem hsla(0, 0%, 100%, .5)
+}
+
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: #fff
+}
+
+.btn-facebook.focus,
+.btn-facebook:focus,
+.btn-facebook:hover {
+    color: #fff;
+    background-color: #30497c;
+    border-color: #e6e6e6
+}
+
+.btn-facebook.focus,
+.btn-facebook:focus {
+    box-shadow: 0 0 0 .2rem hsla(0, 0%, 100%, .5)
+}
+
+.btn-facebook.disabled,
+.btn-facebook:disabled {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: #fff
+}
+
+.btn-facebook:not(:disabled):not(.disabled).active,
+.btn-facebook:not(:disabled):not(.disabled):active,
+.show>.btn-facebook.dropdown-toggle {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: #dfdfdf
+}
+
+.btn-facebook:not(:disabled):not(.disabled).active:focus,
+.btn-facebook:not(:disabled):not(.disabled):active:focus,
+.show>.btn-facebook.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem hsla(0, 0%, 100%, .5)
+}
