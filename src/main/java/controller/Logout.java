@@ -8,10 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "logout",urlPatterns = "/logout")
+/*
+handling the logout ie destroying the session
+*/
+@WebServlet(name = "logout", urlPatterns = "/logout")
 public class Logout extends HttpServlet {
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session =request.getSession();
+    protected void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
         session.removeAttribute("User");
         response.sendRedirect("index.jsp");
     }

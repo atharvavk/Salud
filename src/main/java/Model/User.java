@@ -1,9 +1,13 @@
 package Model;
 
+// basic model(class to give data to jsp) for sending user data
+// with all getter and setter
 public class User {
     String Name;
     int id;
     String email;
+    String mobile;
+    boolean status;
 
     public boolean isStatus() {
         return status;
@@ -12,9 +16,6 @@ public class User {
     public void setStatus(boolean status) {
         this.status = status;
     }
-
-    String mobile;
-    boolean status;
 
     public String getName() {
         return Name;
@@ -47,6 +48,5 @@ public class User {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-
 
 }

@@ -20,6 +20,8 @@ import Model.User;
 
 /**
  *
+ * for handling the login
+ * 
  * @author risha
  */
 @WebServlet(name = "login", urlPatterns = { "/login" })
@@ -28,21 +30,22 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
+            // getting username pwd
             String uname = request.getParameter("email");
             String pwd = request.getParameter("password");
             UserDao x = new UserDao();
-            User u =x.check(uname,pwd);
+            User u = x.check(uname, pwd);
 
-
-            if(!u.getName().equals("incorrect_password")){
-                HttpSession session=request.getSession();
-                session.setAttribute("User",u);
-                if(x.isAdmin(uname,pwd)){
+            // here "incorrect_password" is the default name in dao
+            if (!u.getName().equals("incorrect_password")) {
+                HttpSession session = request.getSession();
+                session.setAttribute("User", u);
+                // checking if user is admin
+                if (x.isAdmin(uname, pwd)) {
                     response.sendRedirect("admin/index.jsp");
                 }
                 response.sendRedirect("products.jsp");
-            }
-            else{
+            } else {
                 response.sendRedirect("login.jsp?error=incorrect");
             }
 

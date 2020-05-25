@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	alert('final');
+	// alert('final');
 	$('form[action="login"]').submit(function (e) {
 		let retval = false;
 		var email = $('form[action="login"] input[name="email"]').val();

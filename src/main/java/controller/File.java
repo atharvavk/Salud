@@ -16,6 +16,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 
+/*
+for handling the profile picture
+*/
 @WebServlet(name = "file", urlPatterns = "/admin/file")
 public class File extends HttpServlet {
 
@@ -24,12 +27,12 @@ public class File extends HttpServlet {
         ServletFileUpload sf = new ServletFileUpload(new DiskFileItemFactory());
         try {
             FileItem file = sf.parseRequest(request).iterator().next();
-            if (file.getSize() < 1000000) {
+            if (file.getSize() < 1000000) {// checking filesize
                 String filename = file.getName().toLowerCase();
                 String[] extn = { ".jpg", ".jpeg", ".png" };
                 String fileactualext = new String();
                 Boolean ans = false;
-                for (String a : extn) {
+                for (String a : extn) {// checking file extension
                     if (filename.endsWith(a)) {
                         ans = true;
                         fileactualext = a;
@@ -41,12 +44,14 @@ public class File extends HttpServlet {
                     User u = (User) session.getAttribute("User");
                     int n = u.getId();
                     String newname = Integer.toString(n) + fileactualext;
-                    file.write(new java.io.File("C:\\Users\\risha\\Desktop\\myawp\\src\\main\\webapp\\admin\\uploads\\" + newname));
-                    if(u.isStatus()){
-                        UserDao x=new UserDao();
+                    // writing the file and setting the status for is profile pic set
+                    file.write(new java.io.File(
+                            "C:\\Users\\risha\\Desktop\\myawp\\src\\main\\webapp\\admin\\uploads\\" + newname));
+                    if (u.isStatus()) {
+                        UserDao x = new UserDao();
                         x.setStatus(n);
                         u.setStatus(false);
-                        session.setAttribute("User",u);
+                        session.setAttribute("User", u);
                     }
                     // System.out.println("done");
                     response.sendRedirect("profile.jsp");
