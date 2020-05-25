@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	// alert('final');
+	$('form[action="register"] input[name="number"]').mask('(0000)-000-000');
+	// alert("rishabh");
 	$('form[action="login"]').submit(function (e) {
 		let retval = false;
 		var email = $('form[action="login"] input[name="email"]').val();
