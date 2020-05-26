@@ -55,7 +55,7 @@
         <div class="container">
             <div class="product-item">
                 <div class="d-flex product-item-title">
-                    <div class="d-flex mx-auto bg-faded p-5 rounded">
+                    <div class="d-flex mr-auto bg-faded p-5 rounded">
                         <h2 class="section-heading mb-0"><span class="section-heading-upper">From Around the
                                 World</span><span class="section-heading-lower">Bulk Speciality Blends</span></h2>
                     </div>
