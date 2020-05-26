@@ -1,11 +1,12 @@
+
 $(document).ready(function () {
-	$('form[action="register"] input[name="number"]').mask('(0000)-000-000');
-	alert("rishabh");
+	$('form[action="register"] input[name="number"]').mask('(000)-000-0000');
+	// alert("rishabh");
 	$('form[action="login"]').submit(function (e) {
 		let retval = false;
 		var email = $('form[action="login"] input[name="email"]').val();
 		var pwd = $('form[action="login"] input[name="password"]').val();
-		if (pwd.length == 0) {
+		if (pwd.length === 0) {
 			$('form[action="login"] input[name="password"]').addClass(
 				'is-invalid'
 			);
@@ -18,7 +19,7 @@ $(document).ready(function () {
 				'is-valid'
 			);
 		}
-		if (email.length == 0) {
+		if (email.length === 0) {
 			$('form[action="login"] input[name="email"]').addClass(
 				'is-invalid'
 			);
@@ -47,14 +48,23 @@ $(document).ready(function () {
 		const pwd2 = $(
 			'form[action="register"] input[name="password_repeat"]'
 		).val();
-		if (pwd != pwd2) {
+//                console.log(pwd+"hi"+pwd2);
+		if (pwd !== pwd2) {
 			$('form[action="register"] input[name="password_repeat"]').addClass(
 				'is-invalid'
 			);
 			retval = false;
 		}
+                else{
+                    $('form[action="register"] input[name="password_repeat"]').removeClass(
+				'is-invalid'
+			);
+                    $('form[action="register"] input[name="password_repeat"]').addClass(
+				'is-valid'
+			);
+                }
 
-		if (!pwd.match('^(?=.*[w])(?=.*[W])[wW]{8,}$')) {
+		if (!pwd.match('^(?=.*[\\w])(?=.*[\\W])[\\w\\W]{8,}$')) {
 			$('form[action="register" ] input[name="password"]').addClass(
 				'is-invalid'
 			);
@@ -67,7 +77,7 @@ $(document).ready(function () {
 				'is-valid'
 			);
 		}
-		if (fname.length == 0) {
+		if (fname.length === 0) {
 			$('form[action="register"] input[name="first_name"]').addClass(
 				'is-invalid'
 			);
@@ -80,7 +90,7 @@ $(document).ready(function () {
 				'is-valid'
 			);
 		}
-		if (lname.length == 0) {
+		if (lname.length === 0) {
 			$('form[action="register"] input[name="last_name"]').addClass(
 				'is-invalid'
 			);
@@ -95,7 +105,7 @@ $(document).ready(function () {
 		}
 		if (
 			!email.match(
-				'^[a-zA-Z0-9_+&*-] + (?:\\.[a-zA-Z0-9_+&*-]+ )*@(?:[a-zA-Z0-9-]+\\.) + [a-zA-Z]{2, 7}'
+				'^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$'
 			)
 		) {
 			$('form[action="register"] input[name="email"]').addClass(
@@ -110,7 +120,7 @@ $(document).ready(function () {
 				'is-valid'
 			);
 		}
-		if (!number.match('(0/91)?[7-9][0-9]{9}')) {
+		if (!number.match('^\\(\\d{3}\\)-\\d{3}-\\d{4}$')) {
 			$('form[action="register"] input[name="number"]').addClass(
 				'is-invalid'
 			);
@@ -128,43 +138,3 @@ $(document).ready(function () {
 		}
 	});
 });
-
-// function validateRegister() {
-// 	let retval = true;
-// 	const fname = $('[name="first_name"]').val();
-// 	const lname = $('[name="last_name"]').val();
-// 	const email = $('[name="email"]').val();
-// 	const number = $('[name="number"]').val();
-// 	const pwd = $('[name="password"]').val();
-// 	const pwd2 = $('[name="password_repeat"]').val();
-// 	if (pwd != pwd2) {
-// 		$('[name="password_repeat"]').addClass('is-invalid');
-// 		retval = false;
-// 	}
-
-// 	if (!pwd.match('^(?=.*[w])(?=.*[W])[wW]{8,}$')) {
-// 		$('[name="password"]').addClass('is-invalid');
-// 		retval = false;
-// 	}
-// 	if (fname.length == 0) {
-// 		$('[name="first_name"]').addClass('is-invalid');
-// 		retval = false;
-// 	}
-// 	if (lname.length == 0) {
-// 		$('[name="last_name"]').addClass('is-invalid');
-// 		retval = false;
-// 	}
-// 	if (
-// 		!email.match(
-// 			'^[a-zA-Z0-9_+&*-] + (?:\\.[a-zA-Z0-9_+&*-]+ )*@(?:[a-zA-Z0-9-]+\\.) + [a-zA-Z]{2, 7}'
-// 		)
-// 	) {
-// 		$('[name="email"]').addClass('is-invalid');
-// 		retval = false;
-// 	}
-// 	if (!number.match('(0/91)?[7-9][0-9]{9}')) {
-// 		$('[name="number"]').addClass('is-invalid');
-// 		retval = false;
-// 	}
-// 	return false;
-// }

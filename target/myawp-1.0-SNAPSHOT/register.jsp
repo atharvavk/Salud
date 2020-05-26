@@ -35,14 +35,14 @@
                                             type="text" id="exampleFirstName" placeholder="First Name"
                                             name="first_name"></div>
                                     <div class="col-sm-6"><input class="form-control form-control-user" type="text"
-                                            id="exampleFirstName" placeholder="Last Name" name="last_name"></div>
+                                            id="exampleLasttName" placeholder="Last Name" name="last_name"></div>
                                 </div>
-                                <div class="form-group"><input class="form-control form-control-user" type="email"
+                                <div class="form-group"><input class="form-control form-control-user" type="text"
                                         id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address"
                                         name="email"></div>
                                 <div class="form-group"><input class="form-control form-control-user" type="text"
                                         id="exampleInputnumber" aria-describedby="numberHelp"
-                                        placeholder="(1234)-567-890" name="number"></div>
+                                        placeholder="(123)-456-7890" name="number"></div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"

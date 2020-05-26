@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/myawp.iml" filepath="$PROJECT_DIR$/myawp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/myawp.iml" filepath="$PROJECT_DIR$/.idea/myawp.iml" />
     </modules>
   </component>
 </project>

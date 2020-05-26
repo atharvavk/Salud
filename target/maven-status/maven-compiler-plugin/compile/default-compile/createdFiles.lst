@@ -1,2 +1,7 @@
+controller\File.class
+Dao\UserDao$Password.class
+controller\Logout.class
+Model\User.class
 Dao\UserDao.class
 controller\login.class
+controller\Register.class
