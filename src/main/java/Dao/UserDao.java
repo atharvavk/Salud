@@ -5,8 +5,10 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 
 import Model.User;
+import Model.cart;
 import org.apache.commons.codec.binary.Base64;
 
 //this is Dao class (Dao means user for connection to data base)
@@ -134,5 +136,21 @@ public class UserDao {
         st.setString(1, String.valueOf(a));
         st.executeUpdate();
     }
-
+    public ArrayList<User> getallusers() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
+        ArrayList<User> allusers = new ArrayList<User>();
+        User u;
+        PreparedStatement  st = conn.prepareStatement("select * from user ");
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            u = new User();
+            u.setId(rs.getInt("Id"));
+            u.setName(rs.getString("UserName"));
+            u.setMobile(rs.getString("Mobile"));
+            u.setEmail(rs.getString("Email"));
+            allusers.add(u);
+        }
+        return allusers;
+    }
 }
