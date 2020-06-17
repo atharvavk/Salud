@@ -12,24 +12,27 @@
 </head>
 
 <body class="main-bg">
-<%@ include file="header.jsp"
+    <%@ include file="header.jsp"
     %>
     <section class=" page-section">
-    <div class="container">
-        <div class="product-item">
-            <div class="d-flex product-item-title">
-                <div class="d-flex mr-auto bg-faded p-5 rounded">
-                    <h2 class="section-heading mb-0"><span class="section-heading-upper">THE BITTER AND BOLD</span>
-                        <span class="section-heading-lower">COFFEE BEANS</span></h2>
+        <div class="container">
+            <div class="product-item">
+                <div class="d-flex product-item-title">
+                    <div class="d-flex mr-auto bg-faded p-5 rounded">
+                        <h2 class="section-heading mb-0"><span class="section-heading-upper">THE BITTER AND BOLD</span>
+                            <span class="section-heading-lower">COFFEE BEANS</span></h2>
+                    </div>
+                </div><img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded"
+                    src="assets/img/products-01.jpg">
+                <div class="bg-faded p-5 rounded">
+                    <p class="mb-0">Sourced from the coffee capitals of the world, our gourmet coffee boasts of an elite
+                        decadence. Explore with us over 300 years of innovation, creativity and masterblending expertise
+                        as you take on a sensorial journey. Each sip is replete with full-bodied robustness to leave you
+                        lost in lip-smacking bliss.
+                    </p>
                 </div>
-            </div><img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded"
-                src="assets/img/products-01.jpg">
-            <div class="bg-faded p-5 rounded">
-                <p class="mb-0">Sourced from the coffee capitals of the world, our gourmet coffee boasts of an elite decadence. Explore with us over 300 years of innovation, creativity and masterblending expertise as you take on a sensorial journey. Each sip is replete with full-bodied robustness to leave you lost in lip-smacking bliss.
-                </p>
             </div>
         </div>
-    </div>
     </section>
     <section class="page-section">
         <div class="container">
@@ -42,7 +45,10 @@
                 </div><img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded"
                     src="assets/img/products-02.jpg">
                 <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">Our rich, premium tea blends are bursting with antioxidants, carefully curated to refresh and rejuvenate. The leaves are selected from the finest tea estates, bringing their magic to your daily cuppa. For us, tea is more than just a drink. It's been part of our daily lives and the lives of generations of tea lovers.
+                    <p class="mb-0">Our rich, premium tea blends are bursting with antioxidants, carefully curated to
+                        refresh and rejuvenate. The leaves are selected from the finest tea estates, bringing their
+                        magic to your daily cuppa. For us, tea is more than just a drink. It's been part of our daily
+                        lives and the lives of generations of tea lovers.
                     </p>
                 </div>
             </div>
@@ -59,7 +65,10 @@
                 </div><img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded"
                     src="assets/img/products-03.jpg">
                 <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">Gone are the days of the merciless dairy industry and its unforgivable atrocities. Our vegan milk options are lactose-free, cholesterol-free and extremely low on fat. They are rich in proteins and essential minerals. Partake in their natural sweetness and creamy consistencies guilt-free.</p>
+                    <p class="mb-0">Gone are the days of the merciless dairy industry and its unforgivable atrocities.
+                        Our vegan milk options are lactose-free, cholesterol-free and extremely low on fat. They are
+                        rich in proteins and essential minerals. Partake in their natural sweetness and creamy
+                        consistencies guilt-free.</p>
                 </div>
             </div>
         </div>

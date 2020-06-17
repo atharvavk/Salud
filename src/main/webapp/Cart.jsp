@@ -35,6 +35,7 @@
                     <div class="card wish-list mb-3">
                         <div class="card-body">
                             <h5 class="mb-4">Cart (<span>${cartproducts.size()}</span> items)</h5>
+                            <input type="hidden" value="${User.id}" id="userid">
                             <c:set var="totalcost" value="0"/>
                             <c:forEach var="prod" items="${cartproducts}">
                                 <c:set var="temp" value="${prod.price*prod.quantity}"></c:set>
@@ -75,9 +76,10 @@
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <a href="#!" type="button"
+                                                    <a type="button"
                                                         class="card-link-secondary small text-uppercase mr-3"><i
                                                             class="fas fa-trash-alt mr-1"></i> Remove item </a>
+                                                    <input type="hidden" value="${prod.id}">
                                                 </div>
                                                 <p class="mb-0"><span><strong>Price : <i
                                                                 class="fa fa-inr"></i>${prod.price}</strong></span></p>

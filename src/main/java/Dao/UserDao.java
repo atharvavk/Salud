@@ -128,7 +128,21 @@ public class UserDao {
         return false;
     }
 
-    // this function changes the status to profile picture set
+public boolean remove(int id){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "Admin");
+            PreparedStatement st = conn
+                    .prepareStatement("delete from user where id=?");
+            st.setInt(1, id);
+            st.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }    // this function changes the status to profile picture set
     public void setStatus(int a) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");

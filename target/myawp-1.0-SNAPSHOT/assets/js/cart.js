@@ -7,27 +7,36 @@ function addquantity(x, y) {
     $('#Amount' + x).text(initialcost);
 
 	let total = $('#Total').text();
-	console.log(total)
 	total=parseFloat(total);
 	total += y;
 	total=total.toFixed(2)
-	console.log(total)
 	$('#Total').text(total);
+
+	const xhr = new XMLHttpRequest();
+	const userid = $("#userid").val();
+	xhr.open('GET', 'addquantity?cartId=' + x , false);
+	xhr.send(null);
+	console.log(xhr.readyState);
 }
 function subquantity(x, y) {
 	let initialcost = $('#Amount' + x).text();
 	initialcost=parseFloat(initialcost);
 	y=parseFloat(y)
 	if(initialcost>0){
-	initialcost -= y;
-	initialcost=initialcost.toFixed(2)
-	$('#Amount' + x).text(initialcost);
+		initialcost -= y;
+		initialcost=initialcost.toFixed(2)
+		$('#Amount' + x).text(initialcost);
 
-	let total = $('#Total').text();
-	console.log(total)
-	total=parseFloat(total);
-	total -= y;
-	total=total.toFixed(2)
-	console.log(total)
-	$('#Total').text(total);}
+		let total = $('#Total').text();
+		total=parseFloat(total);
+		total -= y;
+		total=total.toFixed(2)
+		$('#Total').text(total);
+		const xhr = new XMLHttpRequest();
+		const userid = $("#userid").val();
+		xhr.open('GET', 'delquantity?cartId=' + x , false);
+		xhr.send(null);
+		console.log(xhr.readyState);
+	}
+
 }

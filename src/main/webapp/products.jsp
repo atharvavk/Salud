@@ -34,9 +34,7 @@
             </div>
         </div>
     </section>
-    <section class="page-section">Gone are the days of the merciless dairy industry and its unforgivable atrocities. Our
-        vegan milk options are lactose-free, cholesterol-free and extremely low on fat. They are rich in proteins and
-        essential minerals. Partake in their natural sweetness and creamy consistencies guilt-free.
+    <section class="page-section">
         <div class="container">
             <div class="product-item">
                 <div class="d-flex product-item-title">

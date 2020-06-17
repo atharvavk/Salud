@@ -40,7 +40,7 @@ public class CartDao {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
         PreparedStatement st = conn
-                .prepareStatement("update cart set Quantity=? where Id=?");
+                .prepareStatement("update cart set Quantity=Quantity+? where Id=? ");
         st.setInt(1, quantity);
         st.setInt(2, id);
         st.executeUpdate();
