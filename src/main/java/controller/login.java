@@ -17,6 +17,10 @@ import javax.servlet.http.HttpSession;
 
 import Dao.*;
 import Model.User;
+import javax.servlet.AsyncContext;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
 
 /**
  *
@@ -24,45 +28,26 @@ import Model.User;
  * 
  * @author risha
  */
-@WebServlet(name = "login", urlPatterns = { "/login" })
+@WebServlet(asyncSupported = true)
 public class login extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
-            // getting username pwd
-            String uname = request.getParameter("email");
-            String pwd = request.getParameter("password");
-            UserDao x = new UserDao();
-            User u = x.check(uname, pwd);
-
-            // here "incorrect_password" is the default name in dao
-            if (!u.getName().equals("incorrect_password")) {
-                HttpSession session = request.getSession();
-                session.setAttribute("User", u);
-                // checking if user is admin
-                if (x.isAdmin(uname, pwd)) {
-                    response.sendRedirect("admin/index.jsp");
-                }
-                response.sendRedirect("products.jsp");
-            } else {
-                response.sendRedirect("login.jsp?error=incorrect");
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.getMessage();
-        }
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     * 
-     * @return a String containing servlet description
-     */
+    
     @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    protected void doPost(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException
+    {
+        AsyncContext asyncContext = request.startAsync(request, response);
+        //asyncContext.setTimeout(10 * 60 * 1000);
+        //addRemoteClient(new RemoteClient(asyncContext));
+        ServletContext servletContext = getServletContext();
+        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/login");
+        //request.setAttribute("async", asyncContext);
+        requestDispatcher.forward(asyncContext.getRequest() , asyncContext.getResponse()); 
+        
+        Login_dispatcher.done(asyncContext) ; 
+        
+        
+    } 
+
+
 
 }
