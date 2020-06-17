@@ -19,7 +19,9 @@
         <div>
             <a class="navbar-brand text-uppercase d-lg-none text-expanded" href="index.jsp">NotAfrica</a>
             <small class="text-primary">
+                <c:if test="${!empty User}">
                 Hello,${User.name}
+                </c:if>
             </small>
         </div>
         <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler"

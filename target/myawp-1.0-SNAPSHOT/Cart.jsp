@@ -49,7 +49,7 @@
                                     <div class="col-md-7 col-lg-9 col-xl-9">
                                         <div>
                                             <div class="d-flex justify-content-between">
-                                                <div>
+                                                <div class="col">
                                                     <h5 class="text-uppercase">${prod.name}</h5>
                                                     <p class="mb-3 text-muted text-capitalize small">${prod.description}
                                                     </p>
