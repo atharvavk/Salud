@@ -71,7 +71,7 @@
                                             <tr id="row${row.Id}">
                                                 <td>${row.Id}</td>
                                                 <td><img class="rounded-circle mr-2" width="30" height="30"
-                                                        src="assets/img/avatars/avatar1.jpeg">${row.Name}</td>
+                                                        src="admin/assets/img/products/"+${row.id}>${row.Name}</td>
                                                 <td>${row.Price}</td>
                                                 <td>${row.Description}</td>
                                                 <td>${row.Stock}</td>
@@ -108,7 +108,6 @@
                                                     <li class="page-item active"><a class="page-link" ><%
                                                 out.println(request.getParameter("page"));
                                                     %></a></li>
-                                            
                                                     <li class="page-item"><a class="page-link" <%
                                                         int next = Integer.parseInt(request.getParameter("page"));
                                                         next = next + 1;

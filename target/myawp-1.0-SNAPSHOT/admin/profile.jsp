@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="profile.css">
     <script type="text/javascript" src="assets/js/my.js"></script>
-    <script type="text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $("#usersubmit").click(function(){
+        $(document).ready(function () {
+            $("#usersubmit").click(function () {
                 var firstname = $("#first_name").val();
                 var lastname = $("#last_name").val();
                 var number = $("#number").val();
@@ -22,12 +22,18 @@
                 var passwd = $("#password").val();
                 $.ajax({
                     type: 'POST',
-                    data: {first_name:firstname, last_name:lastname, number:number, email:email, password:passwd},
+                    data: {
+                        first_name: firstname,
+                        last_name: lastname,
+                        number: number,
+                        email: email,
+                        password: passwd
+                    },
                     url: "../AdminUserReg",
                     success: function (msg) {
                         alert(msg);
                     }
-                });    
+                });
             });
         });
     </script>
@@ -49,43 +55,46 @@
                                 <div class="card-header py-3">
                                     <p class="text-primary m-0 font-weight-bold">User Settings</p>
                                 </div>
-                                  <div class="card-body">
+                                <div class="card-body">
                                     <!--done validation-->
                                     <form method="post" id="user">
                                         <div class="form-row">
                                             <div class="col">
                                                 <div class="form-group"><label for="first_name"><strong>First
                                                             Name</strong></label><input class="form-control" type="text"
-                                                                  placeholder="John" name="first_name" id="first_name"></div>
+                                                        placeholder="John" name="first_name" id="first_name"></div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group"><label for="last_name"><strong>Last
                                                             Name</strong></label><input class="form-control" type="text"
-                                                                  placeholder="Doe" name="last_name" id="last_name"></div>
+                                                        placeholder="Doe" name="last_name" id="last_name"></div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col">
                                                 <div class="form-group"><label for="number"><strong>Mobile
                                                             Number</strong></label><input class="form-control"
-                                                                  type="text" placeholder="888-888-8888" aria-describedby="numberHelp" name="number" id="number"></div>
+                                                        type="text" placeholder="888-888-8888"
+                                                        aria-describedby="numberHelp" name="number" id="number"></div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group"><label for="email"><strong>Email
                                                             Address</strong></label><input class="form-control"
-                                                                  type="email" placeholder="user@example.com" name="email" id="email"></div>
+                                                        type="email" placeholder="user@example.com" name="email"
+                                                        id="email"></div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="col">
                                                 <div class="form-group"><label for="password"><strong>Password
-                                                            </strong></label><input class="form-control" type="password"
-                                                                   name="password" id="password"></div>
+                                                        </strong></label><input class="form-control" type="password"
+                                                        name="password" id="password"></div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group"><label for="password_repeat"><strong>Repeat
-                                                        Password</strong></label><input class="form-control" type="password"
-                                                               name="password_repeat" id="password_repeat"></div>
+                                                            Password</strong></label><input class="form-control"
+                                                        type="password" name="password_repeat" id="password_repeat">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group"><button class="btn btn-primary btn-sm" type="submit"
@@ -95,45 +104,7 @@
                                     </form>
                                 </div>
                             </div>
-                            
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card mb-3 shadow">
-                                <div class="card-header py-3">
-                                    <p class="text-primary m-0 font-weight-bold">Profile Picture</p>
-                                </div>
 
-                                <div class="card-body text-center ">
-                                    <img class="rounded-circle mb-3 mt-4" 
-                                    <%
-                                    if (! u.isStatus()) {
-                                        out.println("src='uploads/"+u.getId()+".jpg?"+ System.currentTimeMillis()+"'");
-                                    } else {
-                                        out.println("src='uploads/default.jpg'");
-                                    }
-                                    %> width="250" height="250">
-                                    <form action="file" method="post" enctype="multipart/form-data">
-                                            <c:if test="${param.error == 'size'}">
-                                                <p class="text-danger">File Too Big</p>
-                                            </c:if>
-                                            <c:if test="${param.error == 'type'}">
-                                                <p class="text-danger">File Format Not Supported</p>
-                                            </c:if>
-
-                                        <div class="mb-3">
-                                            <div class="input-group mb-3">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="file">
-                                                    <label class="custom-file-label "for = " inputGroupFile01">Choose
-                                                        file</label>
-                                                </div>
-                                            </div>
-                                            <button class="btn btn-primary btn-sm" type="submit" name="submit">Change
-                                                Photo</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

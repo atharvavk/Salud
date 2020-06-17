@@ -15,13 +15,14 @@
 
 <body class="main-bg">
     <%@include file="header.jsp"
-%>
+    %>
     <c:if test="${empty User}">
         <c:redirect url="login.jsp"></c:redirect>
     </c:if>
     <div class="container">
         <div class="row my-5">
-            <div class="col-md-8 col-lg-8 order-md-1" style="border-radius: 10px;padding: 30px 30px;background-color: rgba(0, 0, 0, 0.5);">
+            <div class="col-md-8 col-lg-8 order-md-1"
+                style="border-radius: 10px;padding: 30px 30px;background-color: rgba(0, 0, 0, 0.5);">
                 <h4 class="mb-3 text-warning">Billing address</h4>
                 <form class="needs-validation" novalidate>
                     <div class="row ">

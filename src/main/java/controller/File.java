@@ -40,13 +40,14 @@ public class File extends HttpServlet {
                     }
                 }
                 if (ans) {
+                    
                     HttpSession session = request.getSession();
                     User u = (User) session.getAttribute("User");
                     int n = u.getId();
                     String newname = Integer.toString(n) + fileactualext;
+                    System.out.println("inside file "+newname);
                     // writing the file and setting the status for is profile pic set
-                    file.write(new java.io.File(
-                            "C:\\Users\\risha\\Desktop\\myawp\\src\\main\\webapp\\admin\\uploads\\" + newname));
+                    file.write(new java.io.File("C:\\Users\\risha\\Desktop\\myawp - Copy\\src\\main\\webapp\\admin\\uploads\\" + newname));
                     if (u.isStatus()) {
                         UserDao x = new UserDao();
                         x.setStatus(n);

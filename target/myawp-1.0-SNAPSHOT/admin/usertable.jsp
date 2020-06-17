@@ -71,8 +71,7 @@
                                             <% count++; %>
                                             <tr id="row${row.id}">
                                                 <td>${row.Id}</td>
-                                                <td><img class="rounded-circle mr-2" width="30" height="30"
-                                                        src="assets/img/avatars/avatar1.jpeg">${row.UserName}</td>
+                                                <td>${row.UserName}</td>
                                                 <td>${row.Email}</td>
                                                 <td>${row.Mobile}</td>
                                                 <td><button id="${row.Id}" class="delete btn btn-danger">Delete</button>

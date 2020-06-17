@@ -34,7 +34,7 @@
                 <div class="col-lg-8">
                     <div class="card wish-list mb-3">
                         <div class="card-body">
-                            <h5 class="mb-4">Cart (<span>${cartproducts.size()}</span> items)</h5>
+                            <h5 class="mb-4" >Cart (<span id="numberofitems">${cartproducts.size()}</span> items)</h5>
                             <input type="hidden" value="${User.id}" id="userid">
                             <c:set var="totalcost" value="0" />
                             <c:forEach var="prod" items="${cartproducts}">
@@ -110,24 +110,24 @@
 
                         <table class="table">
                             <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <c:set var="temp" value="0"/>
-                            <c:forEach var="ord" items="${prevorder}">
-                                <c:set var="temp" value="${temp +1}"></c:set>
-                                <tr>
-                                    <th scope="row">${temp}</th>
-                                    <td>${ord.productname}</td>
-                                    <td><i class="fa fa-inr"></i>${ord.price}</td>
-                                    <td>${ord.quantity}</td>
-                                </tr>
-                            </c:forEach>
+                                <c:set var="temp" value="0" />
+                                <c:forEach var="ord" items="${prevorder}">
+                                    <c:set var="temp" value="${temp +1}"></c:set>
+                                    <tr>
+                                        <th scope="row">${temp}</th>
+                                        <td>${ord.productname}</td>
+                                        <td><i class="fa fa-inr"></i>${ord.price}</td>
+                                        <td>${ord.quantity}</td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -168,8 +168,8 @@
                                                 </span></i></strong></span>
                                 </li>
                             </ul>
-                            <a href="checkout.jsp" class="btn btn-primary btn-block waves-effect waves-light">go to
-                                checkout</a>
+                            <button class="btn btn-primary btn-block waves-effect waves-light">go to
+                                checkout</button>
                         </div>
                     </div>
                     <div class="card mb-3">
@@ -199,7 +199,7 @@
         $(document).ready(function () {
             $(".deleteitem").click(function (e) {
                 var id = this.id;
-                console.log("delete clicked",id);
+                console.log("delete clicked", id);
                 $.ajax({
                     type: 'POST',
                     data: {
@@ -208,14 +208,17 @@
                     url: "removecart",
                     success: function (data) {
                         $("#item" + id).hide();
-                        var amount=$("#Amount"+id).text();
-                        amount=parseFloat(amount);
-                        var total=$("#Total").text();
-                        total=parseFloat(total);
-                        total-=amount;
-                        total=total.toFixed(2);
-                        console.log(total,amount);
+                        var amount = $("#Amount" + id).text();
+                        amount = parseFloat(amount);
+                        var total = $("#Total").text();
+                        total = parseFloat(total);
+                        total -= amount;
+                        total = total.toFixed(2);
                         $("#Total").text(total);
+                        var numb=$("#numberofitems").text();
+                        numb=parseInt(numb);
+                        numb-=1;
+                        $("#numberofitems").text(numb);
                     },
                     error: function () {
                         alert("Couldn't remove!");
