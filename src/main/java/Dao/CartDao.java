@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class CartDao {
     public void insert(int userid,int productid,int quantity) throws ClassNotFoundException, SQLException {
-        System.out.println("inside Cart Dao");
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
         PreparedStatement st = conn
@@ -26,6 +25,14 @@ public class CartDao {
                 .prepareStatement("delete  from  cart where UserId=? and ProductId=?");
         st.setInt(1, userid);
         st.setInt(2, prodid);
+        st.executeUpdate();
+    }
+    public void deleteid(int cartid) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
+        PreparedStatement st = conn
+                .prepareStatement("delete  from  cart where Id=?");
+        st.setInt(1, cartid);
         st.executeUpdate();
     }
     public void clearcart(int userid) throws ClassNotFoundException, SQLException {

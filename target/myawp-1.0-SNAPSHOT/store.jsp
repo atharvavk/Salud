@@ -26,6 +26,11 @@
                             <h5 class="card-title text-uppercase">${prod.name}</h5>
                             <span>Price : <i class="fa fa-inr"></i>${prod.price}</span>
                             <p class="card-text">${prod.description}</p>
+                            <c:if test="${prod.stock eq 0}">
+                                <p class='text-danger ml-3 '>
+                                        out of stock
+                                </p>
+                            </c:if>
                             <c:choose>
                                 <c:when test="${prod.incart}">
                                     <button class="btn btn-primary " onclick="removecart(${prod.id},${User.id})" id="proddel${prod.id}">Remove From Cart</button>
@@ -33,7 +38,7 @@
                                 </c:when>
                                 <c:when test="${! empty User}">
                                     <button hidden class="btn btn-primary " onclick="removecart(${prod.id},${User.id})" id="proddel${prod.id}">Remove From Cart</button>
-                                    <button class="btn btn-primary " onclick="addcart(${prod.id},${User.id})" id="prodadd${prod.id}">Add To Cart</button>
+                                    <button <c:if test="${prod.stock eq 0}">disabled</c:if> class="btn btn-primary " onclick="addcart(${prod.id},${User.id})" id="prodadd${prod.id}">Add To Cart</button>
                                 </c:when>
                                 <c:otherwise>
                                     <a href="login.jsp" class="btn btn-primary " >Add To Cart</a>

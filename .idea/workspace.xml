@@ -25,37 +25,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bcf35aec-4ace-40c3-a1c9-b2d6f141b3de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Addquantity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Delquantity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Dao/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/RemoveCartItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/CartDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/CartDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/sidebar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/table.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/img/products-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/img/products-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/img/products-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/img/products-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/products.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/products.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/store.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/store.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Dao/CartDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Dao/CartDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Dao/UserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/Cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/Cart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/WEB-INF/classes/Dao/CartDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/WEB-INF/classes/Dao/CartDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/WEB-INF/classes/Dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/WEB-INF/classes/Dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/sidebar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/admin/table.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/img/products-02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/img/products-02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/img/products-03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/img/products-03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/assets/js/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/products.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/products.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/store.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/myawp-1.0-SNAPSHOT/store.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,9 +44,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -250,7 +229,9 @@
       <workItem from="1592348946862" duration="3066000" />
       <workItem from="1592352241096" duration="174000" />
       <workItem from="1592352636845" duration="3330000" />
-      <workItem from="1592372349244" duration="367000" />
+      <workItem from="1592372349244" duration="5729000" />
+      <workItem from="1592379998960" duration="1809000" />
+      <workItem from="1592382261735" duration="389000" />
     </task>
     <servers />
   </component>
@@ -314,54 +295,54 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592274000576" />
-    <state width="1024" height="239" key="GridCell.Tab.0.bottom" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.0.bottom" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.0.center" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.0.center" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.0.left" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.0.left" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.0.right" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.0.right" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.1.bottom" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.1.bottom" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.1.center" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.1.center" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.1.left" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.1.left" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.1.right" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.1.right" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.2.bottom" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.2.bottom" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.2.center" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.2.center" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.2.left" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.2.left" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
-    <state width="1024" height="239" key="GridCell.Tab.2.right" timestamp="1592355990318">
+    <state width="1024" height="239" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
+    <state width="1024" height="239" key="GridCell.Tab.2.right" timestamp="1592382650988">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="239" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592355990318" />
+    <state width="1024" height="239" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592382650988" />
     <state width="1024" height="210" key="GridCell.Tab.3.bottom" timestamp="1590182443564">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -390,10 +371,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1590834411723" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592354890489">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592373923921">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592354890489" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592373923921" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1590255592956">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

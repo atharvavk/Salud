@@ -36,11 +36,11 @@
                         <div class="card-body">
                             <h5 class="mb-4">Cart (<span>${cartproducts.size()}</span> items)</h5>
                             <input type="hidden" value="${User.id}" id="userid">
-                            <c:set var="totalcost" value="0"/>
+                            <c:set var="totalcost" value="0" />
                             <c:forEach var="prod" items="${cartproducts}">
                                 <c:set var="temp" value="${prod.price*prod.quantity}"></c:set>
-                                <c:set var="totalcost" value="${totalcost+temp}"/>
-                                <div class="row mb-4">
+                                <c:set var="totalcost" value="${totalcost+temp}" />
+                                <div class="row mb-4" id="item${prod.id}">
                                     <div class="col-md-5 col-lg-3 col-xl-3">
                                         <img class="img-fluid w-100"
                                             src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
@@ -77,14 +77,18 @@
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div>
                                                     <a type="button"
-                                                        class="card-link-secondary small text-uppercase mr-3"><i
-                                                            class="fas fa-trash-alt mr-1"></i> Remove item </a>
+                                                        class="card-link-secondary small text-uppercase mr-3 deleteitem"
+                                                        id="${prod.id}"><i class="fas fa-trash-alt mr-1"></i> Remove
+                                                        item </a>
                                                     <input type="hidden" value="${prod.id}">
                                                 </div>
                                                 <p class="mb-0"><span><strong>Price : <i
                                                                 class="fa fa-inr"></i>${prod.price}</strong></span></p>
                                                 <p class="mb-0 "><span><strong>Amount : <i class="fa fa-inr"></i><span
-                                                                id="Amount${prod.id}"><fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${temp}"/></span></strong></span>
+                                                                id="Amount${prod.id}">
+                                                                <fmt:formatNumber type="number" maxFractionDigits="2"
+                                                                    minFractionDigits="2" value="${temp}" />
+                                                            </span></strong></span>
                                                 </p>
 
                                             </div>
@@ -130,11 +134,14 @@
                                             <p class="mb-0">(including VAT)</p>
                                         </strong>
                                     </div>
-                                    <span><strong><i class="fa fa-inr"><span id="Total"><fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalcost}"/></span></i></strong></span>
+                                    <span><strong><i class="fa fa-inr"><span id="Total">
+                                                    <fmt:formatNumber type="number" maxFractionDigits="2"
+                                                        minFractionDigits="2" value="${totalcost}" />
+                                                </span></i></strong></span>
                                 </li>
                             </ul>
-                            <button type="button" class="btn btn-primary btn-block waves-effect waves-light">go to
-                                checkout</button>
+                            <a href="checkout.jsp" class="btn btn-primary btn-block waves-effect waves-light">go to
+                                checkout</a>
                         </div>
                     </div>
                     <div class="card mb-3">
@@ -160,7 +167,39 @@
     </section>
     <%@ include file="footer.jsp"
     %>
-    <!--Section: Block Content-->
+    <script>
+        $(document).ready(function () {
+            $(".deleteitem").click(function (e) {
+                var id = this.id;
+                console.log("delete clicked",id);
+                $.ajax({
+                    type: 'POST',
+                    data: {
+                        id: id
+                    },
+                    url: "removecart",
+                    success: function (data) {
+                        $("#item" + id).hide();
+                        var amount=$("#Amount"+id).text();
+                        amount=parseFloat(amount);
+                        var total=$("#Total").text();
+                        total=parseFloat(total);
+                        total-=amount;
+                        total=total.toFixed(2);
+                        console.log(total,amount);
+                        $("#Total").text(total);
+                    },
+                    error: function () {
+                        alert("Couldn't remove!");
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+
 </body>
 
 </html>
