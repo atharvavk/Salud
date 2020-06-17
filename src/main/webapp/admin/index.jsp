@@ -57,7 +57,7 @@
         $(document).ready(function(){
             $("#updateStock").click(function(){
                 var id = $("#up_id").val();
-                var stock = $("up_stock").val();
+                var stock = $("#up_stock").val();
                 $.ajax({
                     type: 'POST',
                     data: {id:id, stock:stock},

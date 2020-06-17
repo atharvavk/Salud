@@ -104,6 +104,34 @@
                         </div>
                     </div>
                     <div class="card mb-3">
+                        <div class="card-header">
+                            <h5>Previous Orders</h5>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:set var="temp" value="0"/>
+                            <c:forEach var="ord" items="${prevorder}">
+                                <c:set var="temp" value="${temp +1}"></c:set>
+                                <tr>
+                                    <th scope="row">${temp}</th>
+                                    <td>${ord.productname}</td>
+                                    <td><i class="fa fa-inr"></i>${ord.price}</td>
+                                    <td>${ord.quantity}</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="mb-4">We accept</h5>
                             <img class="mr-2" width="45px"

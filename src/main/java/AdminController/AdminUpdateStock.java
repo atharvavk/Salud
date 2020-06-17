@@ -37,11 +37,14 @@ public class AdminUpdateStock extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/plain");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            System.out.println("inside Admin Stock Update");
+
             int id = Integer.parseInt(request.getParameter("id"));
             int stock = Integer.parseInt(request.getParameter("stock"));
+            System.out.println("just before update stock");
             ProductsDao pd = new ProductsDao();
             pd.updatestock(stock, id);
+            System.out.println("just after update stock");
             out.println("Updated successfully");
         }
     }

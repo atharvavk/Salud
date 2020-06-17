@@ -60,10 +60,11 @@ public class ProductsDao {
         st.executeUpdate();
     }
     public void  updatestock(int stock,int id) throws ClassNotFoundException, SQLException {
+        System.out.println("inside update Stock");
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
         PreparedStatement st = conn
-                .prepareStatement("update product set Stock=? where id=?");
+                .prepareStatement("update product set Stock=Stock+? where id=?");
         st.setInt(1, stock);
         st.setInt(2, id);
         st.executeUpdate();
