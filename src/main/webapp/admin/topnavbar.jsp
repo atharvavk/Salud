@@ -15,14 +15,7 @@
             <div class="d-none d-sm-block topbar-divider"></div>
             <li class="nav-item dropdown no-arrow" role="presentation">
                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">${User.name}</span>
-                        <img class="border rounded-circle img-profile" <%
-                                                                        User u=(User) session.getAttribute("User");
-                                                                        if (!u.isStatus()) {
-                                                                            out.println("src='uploads/"+u.getId()+".jpg?"+ System.currentTimeMillis()+"'");
-                                                                        } else {
-                                                                            out.println("src='uploads/default.jpg'");
-                                                                        }
-                                                                        %>></a>
+                        </a>
                     <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu">
                         <a class="dropdown-item" role="presentation" href="profile.jsp"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                         <a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Change Password</a>

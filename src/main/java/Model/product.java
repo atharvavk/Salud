@@ -1,9 +1,17 @@
 package Model;
 
 public class product {
-    String name,Description;
+    String name,Description,filepath;
     int id,stock;
     boolean incart=false;
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
+    }
 
     public boolean isIncart() {
         return incart;

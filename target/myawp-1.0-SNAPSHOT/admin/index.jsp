@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -12,29 +11,98 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#submitProduct").click(function () {
-                var name = $("#name").val();
-                var stock = $("#stock").val();
-                var price = $("#price").val();
-                var description = $("#description").val();
-                $.ajax({
-                    type: 'POST',
-                    data: {
-                        name: name,
-                        stock: stock,
-                        price: price,
-                        description: description
-                    },
-                    url: "../AdminAddProduct",
-                    success: function (msg) {
-                        alert(msg);
-                    },
-                    error: function () {
-                        alert("Couldn't add product");
-                    }
+                    $("#submitProduct").click(function (e) {
+                        var name = $("#name").val();
+                        var stock = $("#stock").val();
+                        var price = $("#price").val();
+                        var description = $("#description").val();
+                        let formData = new FormData()
+                        var d = $('#productimage')[0].files[0]
+                        formData.append('productimage', d);
+                        formData.append('name', name);
+                        formData.append('stock', stock);
+                        formData.append('price', price);
+                        formData.append('description', description);
+                        console.log(formData);
+                        $.ajax({
+                            type: 'POST',
+                            data: formData,
+                            contentType: false,
+                            processData: false,
+                            url: "../AdminAddProduct",
+                            success: function (msg) {
+                                alert(msg);
+                            },
+                            error: function () {
+                                alert("Couldn't add product");
+                            }
+                        });
+                    });
+                    $('form[name = "new_product"]').submit(function (e) {
+                        let retval = false;
+                        var name = $('form[name="new_product"] input[name="name"]').val();
+                        var quantity1 = $('form[name="new_product"] input[name="stock"]').val();
+                        var quantity = parseInt(quantity1);
+                        var price1 = $('form[name="new_product"] input[name="price"]').val();
+                        var price = parseInt(price1);
+                        if (name.length === 0) {
+                            $('form[name="new_product"] input[name="name"]').addClass(
+                                'is-invalid'
+                            );
+                            retval = true;
+                        } else {
+                            $('form[name="new_product"] input[name="name"]').removeClass(
+                                'is-invalid'
+                            );
+                            $('form[name="new_product"] input[name="name"]').addClass(
+                                'is-valid'
+                            );
+                        }
+                        if (Number.isInteger(quantity)) {
+                            if (quantity > 0) {
+                                $('form[name="new_product"] input[name="stock"]').removeClass(
+                                    'is-invalid'
+                                );
+                                $('form[name="new_product"] input[name="stock"]').addClass(
+                                    'is-valid'
+                                );
+                            } else {
+                                $('form[name="new_product"] input[name="stock"]').addClass(
+                                    'is-invalid'
+                                );
+                                retval = true;
+                            }
+                        } else {
+                            $('form[name="new_product"] input[name="stock"]').addClass(
+                                'is-invalid'
+                            );
+                            retval = true;
+                        }
+                        if (Number.isInteger(price)) {
+                            if (price > 0) {
+                                $('form[name="new_product"] input[name="price"]').removeClass(
+                                    'is-invalid'
+                                );
+                                $('form[name="new_product"] input[name="price"]').addClass(
+                                    'is-valid'
+                                );
+                            } else {
+                                $('form[name="new_product"] input[name="price"]').removeClass(
+                                    'is-invalid'
+                                );
+                                retval = true;
+                            }
+                        } else {
+                            $('form[name="new_product"] input[name="price"]').removeClass(
+                                'is-invalid'
+                            );
+                            retval = true;
+                        }
+                        if (retval === true) {
+                            e.preventDefault();
+                        }
+                    });
                 });
-            });
-        });
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -44,6 +112,91 @@
                 var stock = $("#u_stock").val();
                 var price = $("#u_price").val();
                 var description = $("#u_description").val();
+            $('form[name = "update_product"]').submit(function (e) {
+                let retval = false;
+                var id1 = $('form[name="update_product"] input[name="u_id"]').val();
+                var id = parseInt(id1);
+                var name = $('form[name="update_product"] input[name="u_name"]').val();
+                var stock1 = $('form[name="update_product"] input[name="u_stock"]').val();
+                var stock = parseInt(stock1);
+                var price1 = $('form[name="update_product"] input[name="u_price"]').val();
+                var price = parseInt(price1);
+                if (name.length === 0) {
+                    $('form[name="update_product"] input[name="u_name"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                } else {
+                    $('form[name="update_product"] input[name="u_name"]').removeClass(
+                        'is-invalid'
+                    );
+                    $('form[name="new_product"] input[name="name"]').addClass(
+                        'is-valid'
+                    );
+                }
+                if (Number.isInteger(id)) {
+                    if (id > 0) {
+                        $('form[name="upate_product"] input[name="u_id"]').removeClass(
+                            'is-invalid'
+                        );
+                        $('form[name="update_product"] input[name="u_id"]').addClass(
+                            'is-valid'
+                        );
+                    } else {
+                        $('form[name="update_product"] input[name="u_id"]').addClass(
+                            'is-invalid'
+                        );
+                        retval = true;
+                    }
+                } else {
+                    $('form[name="update_product"] input[name="u_id"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                }
+                if (Number.isInteger(stock)) {
+                    if (stock > 0) {
+                        $('form[name="upate_product"] input[name="u_stock"]').removeClass(
+                            'is-invalid'
+                        );
+                        $('form[name="update_product"] input[name="u_stock"]').addClass(
+                            'is-valid'
+                        );
+                    } else {
+                        $('form[name="update_product"] input[name="u_stock"]').addClass(
+                            'is-invalid'
+                        );
+                        retval = true;
+                    }
+                } else {
+                    $('form[name="update_product"] input[name="u_stock"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                }
+                if (Number.isInteger(price)) {
+                    if (price > 0) {
+                        $('form[name="upate_product"] input[name="u_price"]').removeClass(
+                            'is-invalid'
+                        );
+                        $('form[name="update_product"] input[name="u_price"]').addClass(
+                            'is-valid'
+                        );
+                    } else {
+                        $('form[name="update_product"] input[name="u_price"]').addClass(
+                            'is-invalid'
+                        );
+                        retval = true;
+                    }
+                } else {
+                    $('form[name="update_product"] input[name="u_price"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                }
+                if (retval === true) {
+                    e.preventDefault();
+                }
                 $.ajax({
                     type: 'POST',
                     data: {
@@ -63,6 +216,7 @@
                 });
             });
         });
+        });
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -78,6 +232,64 @@
                     url: "../AdminUpdateStock"
 
                 });
+            });
+            $('form[name = "stock"]').submit(function (e) {
+
+                var id1 = $('form[name="stock"] input[name="up_id"]').val();
+
+                var id = parseInt(id1);
+
+                var stock1 = $('form[name="stock"] input[name="up_stock"]').val();;
+
+                var stock = parseInt(stock1);
+
+                if (Number.isInteger(stock)) {
+                    if (stock > 0) {
+                        $('form[name="stock"] input[name="up_stock"]').removeClass(
+                            'is-invalid'
+                        );
+                        $('form[name="stock"] input[name="up_stock"]').addClass(
+                            'is-valid'
+                        );
+                    } else {
+                        $('form[name="stock"] input[name="up_stock"]').addClass(
+                            'is-invalid'
+                        );
+                        retval = true;
+                    }
+                } else {
+                    $('form[name="stock"] input[name="up_stock"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                }
+
+
+
+                if (Number.isInteger(id)) {
+                    if (id > 0) {
+                        $('form[name="stock"] input[name="up_id"]').removeClass(
+                            'is-invalid'
+                        );
+                        $('form[name="stock"] input[name="up_id"]').addClass(
+                            'is-valid'
+                        );
+                    } else {
+                        $('form[name="stock"] input[name="up_id"]').addClass(
+                            'is-invalid'
+                        );
+                        retval = true;
+                    }
+                } else {
+                    $('form[name="stock"] input[name="up_id"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                }
+                if (retval === true) {
+                    e.preventDefault();
+                }
+                
             });
         });
     </script>
@@ -103,7 +315,7 @@
                                     <p class="text-primary m-0 font-weight-bold">Add New Product</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form name="new_product">
 
                                         <div class="form-row">
 
@@ -124,15 +336,16 @@
                                             <div class="col">
                                                 <div class="form-group"><label
                                                         for="price"><strong>Price</strong></label><input
-                                                        class="form-control" type="text" placeholder="100" name="price"
-                                                        id="price"></div>
-                                            </div>
+                                                        class="form-control" type="number" placeholder="100"
+                                                        name="price" id="price"></div>
+                                                    </div>
                                         </div>
                                         <div class="form-group">
                                             <strong>Photo</strong>
                                             <div class="input-group mb-3">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="file">
+                                                    <input type="file" class="custom-file-input" name="file"
+                                                        id="productimage">
                                                     <label class="custom-file-label " for=" inputGroupFile01">Choose
                                                         file</label>
                                                 </div>
@@ -143,8 +356,8 @@
                                                 class="form-control" rows="4" placeholder="Hand Sanitizer"
                                                 name="description" id="description"></textarea></div>
 
-
-                                        <div class="form-group"><button class="btn btn-primary btn-sm" type="submit"
+                                        
+                                        <div class="form-group"><button class="btn btn-primary btn-sm" type="button"
                                                 id="submitProduct">Add Product</button></div>
                                     </form>
                                 </div>
@@ -154,13 +367,13 @@
                                     <p class="text-primary m-0 font-weight-bold">Update Product</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form name="update_product">
 
                                         <div class="form-row">
                                             <div class="col">
                                                 <div class="form-group"><label
                                                         for="id"><strong>ID</strong></label><input class="form-control"
-                                                        type="text" placeholder="" name="u_id" id="u_id"></div>
+                                                        type="number" placeholder="" name="u_id" id="u_id"></div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group"><label
@@ -179,7 +392,7 @@
                                             <div class="col">
                                                 <div class="form-group"><label
                                                         for="price"><strong>Price</strong></label><input
-                                                        class="form-control" type="text" placeholder="100"
+                                                        class="form-control" type="number" placeholder="100"
                                                         name="u_price" id="u_price"></div>
                                             </div>
                                         </div>
@@ -198,19 +411,19 @@
                                     <p class="text-primary m-0 font-weight-bold">Update Stock</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form name="stock">
 
                                         <div class="form-row">
                                             <div class="col">
                                                 <div class="form-group"><label
                                                         for="id"><strong>ID</strong></label><input class="form-control"
-                                                        type="text" placeholder="" name="up_id" id="up_id"></div>
+                                                        type="number" placeholder="" name="up_id" id="up_id"></div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group"><label
                                                         for="up_stock"><strong>Stock</strong></label><input
-                                                        class="form-control" type="text" placeholder="" name="up_stock"
-                                                        id="up_stock"></div>
+                                                        class="form-control" type="number" placeholder=""
+                                                        name="up_stock" id="up_stock"></div>
                                             </div>
                                         </div>
                                         <div class="form-group"><button class="btn btn-primary btn-sm" type="submit"
@@ -219,44 +432,8 @@
                                 </div>
                             </div>
                         </div>
-<%--                        <div class="col-lg-4">--%>
-<%--                            <div class="card mb-3 shadow">--%>
-<%--                                <div class="card-header py-3">--%>
-<%--                                    <p class="text-primary m-0 font-weight-bold">Profile Picture</p>--%>
-<%--                                </div>--%>
 
-<%--                                <div class="card-body text-center ">--%>
-<%--                                    <img class="rounded-circle mb-3 mt-4" <%--%>
-<%--                                    if (! u.isStatus()) {--%>
-<%--                                        out.println("src='uploads/"+u.getId()+".jpg?"+ System.currentTimeMillis()+"'");--%>
-<%--                                    } else {--%>
-<%--                                        out.println("src='uploads/default.jpg'");--%>
-<%--                                    }--%>
-<%--                                    %> width="250" height="250">--%>
-<%--                                    <form action="file" method="post" enctype="multipart/form-data">--%>
-<%--                                        <c:if test="${param.error == 'size'}">--%>
-<%--                                            <p class="text-danger">File Too Big</p>--%>
-<%--                                        </c:if>--%>
-<%--                                        <c:if test="${param.error == 'type'}">--%>
-<%--                                            <p class="text-danger">File Format Not Supported</p>--%>
-<%--                                        </c:if>--%>
-
-<%--                                        <div class="mb-3">--%>
-<%--                                            <div class="input-group mb-3">--%>
-<%--                                                <div class="custom-file">--%>
-<%--                                                    <input type="file" class="custom-file-input" name="file">--%>
-<%--                                                    <label class="custom-file-label " for=" inputGroupFile01">Choose--%>
-<%--                                                        file</label>--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                            <button class="btn btn-primary btn-sm" type="submit" name="submit">Change--%>
-<%--                                                Photo</button>--%>
-<%--                                        </div>--%>
-<%--                                    </form>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                    </div>
 
                 </div>
             </div>

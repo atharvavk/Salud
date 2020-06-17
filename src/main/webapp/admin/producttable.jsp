@@ -71,7 +71,7 @@
                                             <tr id="row${row.Id}">
                                                 <td>${row.Id}</td>
                                                 <td><img class="rounded-circle mr-2" width="30" height="30"
-                                                        src="admin/assets/img/products/"+${row.id}>${row.Name}</td>
+                                                        src="uploads/${row.Picname}.jpg">${row.Name}</td>
                                                 <td>${row.Price}</td>
                                                 <td>${row.Description}</td>
                                                 <td>${row.Stock}</td>

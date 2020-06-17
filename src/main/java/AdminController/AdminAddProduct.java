@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Dao.ProductsDao;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author acer
  */
-@WebServlet(name = "AdminAddProduct",urlPatterns = "/AdminAddProduct")
+@WebServlet(name = "AdminAddProduct")
 public class AdminAddProduct extends HttpServlet {
 
     /**
@@ -39,6 +40,7 @@ public class AdminAddProduct extends HttpServlet {
         response.setContentType("text/plain");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+
             String name = request.getParameter("name");
             int stock = Integer.parseInt(request.getParameter("stock"));
             float price = Float.parseFloat(request.getParameter("price"));

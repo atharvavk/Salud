@@ -21,7 +21,7 @@
                 <c:forEach var="prod" items="${products}">
                 <div class="col-lg-4 col-md-6 mb-3 d-flex">
                     <div class="card flex-fill">
-                        <img src="assets/img/bg2.jpg" class="card-img-top " style="height:350px;">
+                        <img src="admin/uploads/${prod.filepath}.jpg" class="card-img-top " style="height:350px;">
                         <div class="card-body" id="prod${prod.id}">
                             <h5 class="card-title text-uppercase">${prod.name}</h5>
                             <span>Price : <i class="fa fa-inr"></i>${prod.price}</span>

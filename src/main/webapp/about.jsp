@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i">
 </head>
 
-<body class="main-bg"">
+<body class="main-bg">
     <%@ include file="header.jsp"
     %>
     <section class=" page-section about-heading">

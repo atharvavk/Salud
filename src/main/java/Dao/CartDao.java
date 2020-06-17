@@ -64,7 +64,7 @@ public class CartDao {
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
         ArrayList<cart> cartitem = new ArrayList<cart>();
         cart cp;
-        PreparedStatement  st = conn.prepareStatement("select cart.Id,ProductId,Name,Description,Price,Quantity,Stock from product inner join cart on cart.ProductId=product.Id where UserId=?");
+        PreparedStatement  st = conn.prepareStatement("select cart.Id,ProductId,Name,Description,Price,Quantity,Stock,Picname from product inner join cart on cart.ProductId=product.Id where UserId=?");
         st.setInt(1,userid);
         ResultSet rs = st.executeQuery();
         while (rs.next()) {
@@ -76,6 +76,7 @@ public class CartDao {
             cp.setDescription(rs.getString("Description"));
             cp.setQuantity(rs.getInt("Quantity"));
             cp.setStock(rs.getInt("Stock"));
+            cp.setFilepath(rs.getString("Picname"));
             cartitem.add(cp);
         }
         return cartitem;

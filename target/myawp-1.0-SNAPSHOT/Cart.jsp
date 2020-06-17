@@ -5,7 +5,7 @@
   Time: 12:23 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 
 <head>
@@ -43,7 +43,7 @@
                                 <div class="row mb-4" id="item${prod.id}">
                                     <div class="col-md-5 col-lg-3 col-xl-3">
                                         <img class="img-fluid w-100"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
+                                            src="admin/uploads/${prod.filepath}.jpg"
                                             alt="Sample">
                                     </div>
                                     <div class="col-md-7 col-lg-9 col-xl-9">

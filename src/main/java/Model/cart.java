@@ -3,6 +3,15 @@ package Model;
 public class cart {
     int id,productid,quantity,stock;
             float price;
+            String filepath;
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
+    }
 
     public int getStock() {
         return stock;

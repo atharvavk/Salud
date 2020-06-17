@@ -20,6 +20,7 @@ public class ProductsDao {
             cp.setDescription(rs.getString("Description"));
             cp.setStock(rs.getInt("Stock"));
             cp.setPrice(rs.getFloat("Price"));
+            cp.setFilepath(rs.getString("Picname"));
             allprods.add(cp);
         }
         return allprods;
@@ -49,6 +50,18 @@ public class ProductsDao {
         st.setString(2, Description);
         st.setInt(3,stock);
         st.setFloat(4,price);
+        st.executeUpdate();
+    }
+    public void insertwfile(String name,String Description,int stock,float price,String picname) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
+        PreparedStatement st = conn
+                .prepareStatement("insert into product(Name,Description,Stock,Price,Picname) values (?,?,?,?,?)");
+        st.setString(1, name);
+        st.setString(2, Description);
+        st.setInt(3,stock);
+        st.setFloat(4,price);
+        st.setString(5,picname);
         st.executeUpdate();
     }
     public void delete(int id) throws SQLException, ClassNotFoundException {
