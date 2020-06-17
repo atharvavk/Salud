@@ -23,8 +23,9 @@
                     <p class="mb-3">Every cup of our quality artisan coffee starts with locally sourced, hand picked
                         ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning
                         routine - we guarantee it!</p>
-                    <div class="mx-auto intro-button"><a class="btn btn-primary d-inline-block mx-auto btn-xl"
-                            role="button" href="#">Visit Us Today!</a></div>
+                    <div class="mx-auto intro-button">
+                        <p class="btn btn-primary d-inline-block mx-auto btn-xl">Visit Us Today!</p>
+                    </div>
                 </div>
             </div>
         </div>
