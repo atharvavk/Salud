@@ -206,6 +206,7 @@
                 console.log("delete clicked", id);
                 $.ajax({
                     type: 'POST',
+                    data:{id:id},
                     url: "removecart",
                     success: function (data) {
                         $("#item" + id).hide();
@@ -230,7 +231,7 @@
 
 
             $("#checkout").click(() => {
-                console.log("clicked:)")
+                console.log('clicked:/')
 
                 $.ajax({
                     type: 'POST',

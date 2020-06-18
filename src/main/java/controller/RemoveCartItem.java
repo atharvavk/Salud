@@ -14,9 +14,10 @@ import java.sql.SQLException;
 public class RemoveCartItem extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/plain");
-        System.out.println("inside removecart");
+
         CartDao cd= new CartDao();
         int id= Integer.parseInt(request.getParameter("id"));
+        System.out.println("inside remove"+id);
         try {
             cd.deleteid(id);
         } catch (SQLException throwables) {
