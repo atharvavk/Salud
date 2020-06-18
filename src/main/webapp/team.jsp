@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="team-member"><img class="rounded-circle " src="team/assets/img/team/3.jpg">
+                        <div class="team-member"><img class="rounded-circle " src="team/assets/img/team/SHREYA.jpeg">
                             <h4><strong>Shreya Sahni</strong></h4>
                             <p>BT18CSE037</p>
                             <ul class="list-inline social-buttons">
