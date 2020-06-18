@@ -60,7 +60,7 @@
                                                             onclick="this.parentNode.querySelector('input[type=number]').stepDown();subquantity(${prod.id},${prod.price})"
                                                             class="minus btn btn-outline-primary"><i class="fa fa-minus"
                                                                 aria-hidden="true"></i></button>
-                                                        <input disabled class="quantity input-number" min="0" name="quantity" id="quantity${prod.id}"
+                                                        <input disabled class="quantity input-number" style="max-width: 50px" min="0" name="quantity" id="quantity${prod.id}"
                                                             value="${prod.quantity}" type="number">
                                                         <button
                                                             onclick="this.parentNode.querySelector('input[type=number]').stepUp();addquantity(${prod.id},${prod.price})"
@@ -92,6 +92,7 @@
                                                             </span></strong></span>
                                                 </p>
 
+
                                             </div>
                                         </div>
                                     </div>
@@ -99,9 +100,10 @@
                                 <hr class="mb-4">
                             </c:forEach>
 
-                            <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the
+                            <span class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the
                                 purchase, adding
-                                items to your cart does not mean booking them.</p>
+                                items to your cart does not mean booking them.</span>
+                            <button id="deleteall" class="btn btn-primary">Clear Cart</button>
                         </div>
                     </div>
                     <div class="card mb-3">
@@ -246,6 +248,21 @@
 
                             }
                         }
+                    },error:()=>{
+                        alert("error occured");
+                    }
+                });
+            });
+
+
+            $("#deleteall").click(() => {
+
+                $.ajax({
+                    type: 'GET',
+                    url: "deleteall",
+                    success :(data)=>{
+                        $(".wish-list").hide();
+                        $("#Total").text(0);
                     },error:()=>{
                         alert("error occured");
                     }

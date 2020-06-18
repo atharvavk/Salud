@@ -52,11 +52,12 @@ public class CartDao {
         st.setInt(2, id);
         st.executeUpdate();
     }
-    public void clearzero() throws ClassNotFoundException, SQLException {
+    public void clearzero(int id) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
         PreparedStatement st = conn
-                .prepareStatement("delete  from  cart where Id=?");
+                .prepareStatement("delete  from  cart where UserId=?");
+        st.setInt(1,id);
         st.executeUpdate();
     }
     public ArrayList<cart> getall(int userid) throws ClassNotFoundException, SQLException {
