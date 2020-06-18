@@ -60,7 +60,7 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-4 text-center">
-                        <div class="team-member"><img class="rounded-circle " src="team/assets/img/team/1.jpg">
+                        <div class="team-member"><img class="rounded-circle " src="team/assets/img/team/JAY.jpeg">
                             <h4><strong>Jay Puri Goswami</strong></h4>
                             <p>BT18CSE073</p>
                             <ul class="list-inline social-buttons">

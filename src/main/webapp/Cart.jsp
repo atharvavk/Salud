@@ -231,7 +231,7 @@
 
 
             $("#checkout").click(() => {
-                console.log('clicked:/')
+                console.log('clicked:)/')
 
                 $.ajax({
                     type: 'POST',
