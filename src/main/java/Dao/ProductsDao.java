@@ -123,24 +123,23 @@ public class ProductsDao {
     public ArrayList<product> getSearched(String str) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
-        Statement st = conn.createStatement();
-        ArrayList<product> retval = new ArrayList<product>();
+        PreparedStatement st = conn
+                .prepareStatement("select * from product where Name like ?");
+        st.setString(1, "%"+str+"%");
+        ArrayList<product> allprods = new ArrayList<product>();
         product cp;
-        String query = "select * from product";
-        ResultSet rs = st.executeQuery(query);
-        System.out.println("str = " + str);
+        ResultSet rs = st.executeQuery();
         while (rs.next()) {
-            if (rs.getString("Name").toLowerCase().contains(str.toLowerCase())) {
-                cp = new product();
-                cp.setId(rs.getInt("Id"));
-                cp.setName(rs.getString("Name"));
-                cp.setDescription(rs.getString("Description"));
-                cp.setStock(rs.getInt("Stock"));
-                cp.setPrice(rs.getFloat("Price"));
-                retval.add(cp);
-            }
+            cp = new product();
+            cp.setId(rs.getInt("Id"));
+            cp.setName(rs.getString("Name"));
+            cp.setDescription(rs.getString("Description"));
+            cp.setStock(rs.getInt("Stock"));
+            cp.setPrice(rs.getFloat("Price"));
+            cp.setFilepath(rs.getString("Picname"));
+            allprods.add(cp);
         }
-        return retval;
+        return allprods;
     }
 }
 

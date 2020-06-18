@@ -17,6 +17,13 @@
     %>
     <section class="page-section">
         <div class="container">
+            <form class="form-inline" method="get" action="livesearch">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" id="search" name="search" placeholder="search any thing ....">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </form>
             <div class="row">
                 <c:forEach var="prod" items="${products}">
                 <div class="col-lg-4 col-md-6 mb-3 d-flex">
@@ -53,6 +60,7 @@
     </section>
     <%@ include file="footer.jsp"
     %>
+
 </body>
 
 </html>
