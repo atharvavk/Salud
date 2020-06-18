@@ -14,6 +14,7 @@ import java.sql.SQLException;
 public class Delquantity extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CartDao cd =new CartDao();
+
         int cid= Integer.parseInt(request.getParameter("cartId"));
         try {
             cd.changequantity(-1,cid);

@@ -83,6 +83,31 @@ public class ProductsDao {
         st.executeUpdate();
 
     }
+    public void  decstock(int stock,int id) throws ClassNotFoundException, SQLException {
+        System.out.println("inside update Stock");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
+        PreparedStatement st = conn
+                .prepareStatement("update product set Stock=Stock-? where id=?");
+        st.setInt(1, stock);
+        st.setInt(2, id);
+        st.executeUpdate();
+
+    }
+    public Boolean checkstock(int quantity,int id) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");
+        PreparedStatement st = conn
+                .prepareStatement("select Stock from product where id=?");
+        st.setInt(1, id);
+        ResultSet rs=st.executeQuery();
+        while (rs.next()){
+            if(rs.getInt("Stock")>=quantity)
+                return true;
+
+        }
+        return false;
+    }
     public void update(int id,int stock,float price,String name,String description) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/myawp", "root", "admin");

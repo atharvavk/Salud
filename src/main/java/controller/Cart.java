@@ -41,7 +41,7 @@ public class Cart extends HttpServlet {
                 System.out.println(abc.getPrice());
                 System.out.println(abc.getQuantity());
             }
-            request.setAttribute("cartproducts",ca);
+            session.setAttribute("cartproducts",ca);
             request.setAttribute("prevorder",oa);
             RequestDispatcher rd = request.getRequestDispatcher("Cart.jsp");
             rd.forward(request, response);

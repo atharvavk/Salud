@@ -15,6 +15,7 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <script src="assets/js/cart.js"></script>
+
 </head>
 
 <body class="main-bg">
@@ -34,7 +35,7 @@
                 <div class="col-lg-8">
                     <div class="card wish-list mb-3">
                         <div class="card-body">
-                            <h5 class="mb-4" >Cart (<span id="numberofitems">${cartproducts.size()}</span> items)</h5>
+                            <h5 class="mb-4">Cart (<span id="numberofitems">${cartproducts.size()}</span> items)</h5>
                             <input type="hidden" value="${User.id}" id="userid">
                             <c:set var="totalcost" value="0" />
                             <c:forEach var="prod" items="${cartproducts}">
@@ -42,8 +43,7 @@
                                 <c:set var="totalcost" value="${totalcost+temp}" />
                                 <div class="row mb-4" id="item${prod.id}">
                                     <div class="col-md-5 col-lg-3 col-xl-3">
-                                        <img class="img-fluid w-100"
-                                            src="admin/uploads/${prod.filepath}.jpg"
+                                        <img class="img-fluid w-100" src="admin/uploads/${prod.filepath}.jpg"
                                             alt="Sample">
                                     </div>
                                     <div class="col-md-7 col-lg-9 col-xl-9">
@@ -60,7 +60,7 @@
                                                             onclick="this.parentNode.querySelector('input[type=number]').stepDown();subquantity(${prod.id},${prod.price})"
                                                             class="minus btn btn-outline-primary"><i class="fa fa-minus"
                                                                 aria-hidden="true"></i></button>
-                                                        <input class="quantity input-number" min="0" name="quantity"
+                                                        <input class="quantity input-number" min="0" name="quantity" id="quantity${prod.id}"
                                                             value="${prod.quantity}" type="number">
                                                         <button
                                                             onclick="this.parentNode.querySelector('input[type=number]').stepUp();addquantity(${prod.id},${prod.price})"
@@ -72,6 +72,7 @@
                                                             class="form-text text-muted text-center">
                                                             (Note, only ${prod.stock} piece left)
                                                         </small></c:if>
+                                                    <p class="text-danger" id="error${prod.id}"></p>
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center">
@@ -168,7 +169,7 @@
                                                 </span></i></strong></span>
                                 </li>
                             </ul>
-                            <button class="btn btn-primary btn-block waves-effect waves-light">go to
+                            <button class="btn btn-primary btn-block waves-effect waves-light" id="checkout">go to
                                 checkout</button>
                         </div>
                     </div>
@@ -198,13 +199,11 @@
     <script>
         $(document).ready(function () {
             $(".deleteitem").click(function (e) {
+
                 var id = this.id;
                 console.log("delete clicked", id);
                 $.ajax({
                     type: 'POST',
-                    data: {
-                        id: id
-                    },
                     url: "removecart",
                     success: function (data) {
                         $("#item" + id).hide();
@@ -215,9 +214,9 @@
                         total -= amount;
                         total = total.toFixed(2);
                         $("#Total").text(total);
-                        var numb=$("#numberofitems").text();
-                        numb=parseInt(numb);
-                        numb-=1;
+                        var numb = $("#numberofitems").text();
+                        numb = parseInt(numb);
+                        numb -= 1;
                         $("#numberofitems").text(numb);
                     },
                     error: function () {
@@ -225,6 +224,32 @@
                     }
                 });
                 e.preventDefault();
+            });
+
+
+            $("#checkout").click(() => {
+                console.log("clicked:)")
+
+                $.ajax({
+                    type: 'POST',
+                    url: "checkout",
+                    success :(data)=>{
+
+                        if(data.redirect){
+                            window.location.href=data.redirect;
+                        }
+                        else{
+                            alert("hii")
+                            var i;
+                            for(i in data.wrong){
+                                $("#qunatity"+i).text("quantity is to large");
+
+                            }
+                        }
+                    },error:()=>{
+                        alert("error occured");
+                    }
+                });
             });
         });
     </script>

@@ -6,254 +6,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/docs/4.0/assets/img/favicons/favicon.ico">
     <title>Checkout example for Bootstrap</title>
     <link rel="canonical" href="index.html">
     <!-- Bootstrap core CSS -->
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    
-    
-    <script type="text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    
-    
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+
     <script>
-        
-        $(document).ready(function(){
-            
+        $(document).ready(function () {
+
             $('form[name = "checkout"] input[name="cc-expiration"]').mask('00-00-0000');
             $('form[name = "checkout"] input[name="cc-number"]').mask('0000-0000-0000-0000');
-            
-            $('form[name = "checkout"]').submit(function (e) {
-                
-                let retval = false; 
-                var first_name = $('form[name = "checkout"] input[name="firstName"]').val() ; 
-                var last_name = $('form[name = "checkout"] input[name="lastName"]').val() ; 
-                var phone1 = $('form[name = "checkout"] input[name="phone"]').val() ;  
-                
-                var phone = parseInt(phone1) ; 
-                
-                var email = $('form[name = "checkout"] input[name="email"]').val() ; 
-                
-                var address = $('form[name = "checkout"] input[name="address"]').val() ;  
-                
-                var pin = $('form[name = "checkout"] input[name="zip"]').val() ; 
-                
-                var cc_number = $('form[name = "checkout"] input[name="cc-number"]').val() ;
-                
-                var cc_name = $('form[name = "checkout"] input[name="cc-name"]').val()  ; 
-                
-                var cc_cvv =$('form[name = "checkout"] input[name="cc-cvv"]').val()  ; 
-                
-                var cc_expire =  $('form[name = "checkout"] input[name="cc-expiration"]').val() ; 
-                
-                
-                if(first_name.length === 0)
-                {
-                    $('form[name="checkout"] input[name="firstName"]').addClass(
-				'is-invalid'
-			);
-			retval = true;
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="firstName"]').addClass(
-				'is-valid'
-			);
-                }
-                
-                
-                if(last_name.length === 0)
-                {
-                    $('form[name="checkout"] input[name="lastName"]').addClass(
-				'is-invalid'
-			);
-			retval = true;
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="lastName"]').addClass(
-				'is-valid'
-			);
-                }
-                
-                
-                
-                if(Number.isInteger(phone))
-                {
-                    if(phone > 0)
-                    {
-                                $('form[name="checkout"] input[name="phone"]').addClass(
-				'is-valid'
-			);
-                    }
-                    else 
-                    {
-                                    $('form[name="checkout"] input[name="phone"]').addClass(
-                        'is-invalid'
-			);
-			retval = true;
-                    }
-                }
-                
-                else
-                {
-                        $('form[name="checkout"] input[name="phone"]').addClass(
-                    'is-invalid'
-                    );
-			retval = true;
-                }
-                
-                
-                
-                if(!email.match('^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$'))
-                {
-                     $('form[name="checkout"] input[name="email"]').addClass(
-                    'is-invalid'
-                    );
-			retval = true;
-                }
-                else 
-                {
-                           $('form[name="checkout"] input[name="email"]').addClass(
-				'is-valid'
-			);
-                }
-                
-                
-                
-                if(address.length === 0)
-                {
-                    $('form[name="checkout"] input[name="address"]').addClass(
-				'is-invalid'
-			);
-			retval = true;
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="address"]').addClass(
-				'is-valid'
-			);
-                }
-                
-                
-                
-                if(cc_name.length === 0)
-                {
-                    $('form[name="checkout"] input[name="cc-name"]').addClass(
-				'is-invalid'
-			);
-			retval = true;
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="cc-name"]').addClass(
-				'is-valid'
-			);
-                }
-                
-                
-                
-                if(pin.length === 6)
-                {
-                    $('form[name="checkout"] input[name="pin"]').addClass(
-				'is-valid'
-			);
-			
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="pin"]').addClass(
-				'is-invalid'
-			);
-                            retval = true;
-                }
-                
-                
-                if(cc_number.length === 19)
-                {
-                    $('form[name="checkout"] input[name="cc-number"]').addClass(
-				'is-valid'
-			);
-			
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="cc-number"]').addClass(
-				'is-invalid'
-			);
-                
-                            retval = true;
-                }
-                
-                
-                
-                
-                
-                if(cc_cvv.length === 3)
-                {
-                    $('form[name="checkout"] input[name="cc-cvv"]').addClass(
-				'is-valid'
-			);
-			
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="cc-cvv"]').addClass(
-				'is-invalid'
-			);
-                
-                        retval = true;
-                }
-                
-                
-                
-                if(cc_expire.length === 10)
-                {
-                    $('form[name="checkout"] input[name="cc-expiration"]').addClass(
-				'is-valid'
-			);
-			
-                }
-                
-                else 
-                {
-                          $('form[name="checkout"] input[name="cc-expiration"]').addClass(
-				'is-invalid'
-			);
-                
-                        retval = true;
-                }
-                
-                
-                
 
-                
-                
-                
-                
-                
+            $('form[name = "checkout"]').submit(function (e) {
+
+                let retval = false;
+                var first_name = $('form[name = "checkout"] input[name="firstName"]').val();
+                var last_name = $('form[name = "checkout"] input[name="lastName"]').val();
+                var phone1 = $('form[name = "checkout"] input[name="phone"]').val();
+
+                var phone = parseInt(phone1);
+
+                var email = $('form[name = "checkout"] input[name="email"]').val();
+
+                var address = $('form[name = "checkout"] input[name="address"]').val();
+
+                var pin = $('form[name = "checkout"] input[name="zip"]').val();
+
+                var cc_number = $('form[name = "checkout"] input[name="cc-number"]').val();
+
+                var cc_name = $('form[name = "checkout"] input[name="cc-name"]').val();
+
+                var cc_cvv = $('form[name = "checkout"] input[name="cc-cvv"]').val();
+
+                var cc_expire = $('form[name = "checkout"] input[name="cc-expiration"]').val();
+
+
+                if (first_name.length === 0) {
+                    $('form[name="checkout"] input[name="firstName"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                } else {
+                    $('form[name="checkout"] input[name="firstName"]').addClass(
+                        'is-valid'
+                    );
+                }
+
+
+                if (last_name.length === 0) {
+                    $('form[name="checkout"] input[name="lastName"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                } else {
+                    $('form[name="checkout"] input[name="lastName"]').addClass(
+                        'is-valid'
+                    );
+                }
+
+
+
+                if (Number.isInteger(phone)) {
+                    if (phone > 0) {
+                        $('form[name="checkout"] input[name="phone"]').addClass(
+                            'is-valid'
+                        );
+                    } else {
+                        $('form[name="checkout"] input[name="phone"]').addClass(
+                            'is-invalid'
+                        );
+                        retval = true;
+                    }
+                } else {
+                    $('form[name="checkout"] input[name="phone"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                }
+
+
+
+                if (!email.match('^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$')) {
+                    $('form[name="checkout"] input[name="email"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                } else {
+                    $('form[name="checkout"] input[name="email"]').addClass(
+                        'is-valid'
+                    );
+                }
+
+
+
+                if (address.length === 0) {
+                    $('form[name="checkout"] input[name="address"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                } else {
+                    $('form[name="checkout"] input[name="address"]').addClass(
+                        'is-valid'
+                    );
+                }
+
+
+
+                if (cc_name.length === 0) {
+                    $('form[name="checkout"] input[name="cc-name"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                } else {
+                    $('form[name="checkout"] input[name="cc-name"]').addClass(
+                        'is-valid'
+                    );
+                }
+
+
+
+                if (pin.length === 6) {
+                    $('form[name="checkout"] input[name="pin"]').addClass(
+                        'is-valid'
+                    );
+
+                } else {
+                    $('form[name="checkout"] input[name="pin"]').addClass(
+                        'is-invalid'
+                    );
+                    retval = true;
+                }
+
+
+                if (cc_number.length === 19) {
+                    $('form[name="checkout"] input[name="cc-number"]').addClass(
+                        'is-valid'
+                    );
+
+                } else {
+                    $('form[name="checkout"] input[name="cc-number"]').addClass(
+                        'is-invalid'
+                    );
+
+                    retval = true;
+                }
+
+
+
+
+
+                if (cc_cvv.length === 3) {
+                    $('form[name="checkout"] input[name="cc-cvv"]').addClass(
+                        'is-valid'
+                    );
+
+                } else {
+                    $('form[name="checkout"] input[name="cc-cvv"]').addClass(
+                        'is-invalid'
+                    );
+
+                    retval = true;
+                }
+
+
+
+                if (cc_expire.length === 10) {
+                    $('form[name="checkout"] input[name="cc-expiration"]').addClass(
+                        'is-valid'
+                    );
+
+                } else {
+                    $('form[name="checkout"] input[name="cc-expiration"]').addClass(
+                        'is-invalid'
+                    );
+
+                    retval = true;
+                }
+
+
+
+
+
+
+
+
+
                 if (retval === true) {
-			e.preventDefault();
-		}
-                
-            }) ; 
-           
-        }) ; 
-        
-        
+                    e.preventDefault();
+                }
+
+            });
+        });
     </script>
-    
-    
-    
+
+
+
 </head>
 
 <body class="main-bg">
@@ -264,17 +217,20 @@
     </c:if>
     <div class="container">
         <div class="row my-5">
-            <div class="col-md-8 col-lg-8 order-md-1" style="border-radius: 10px;padding: 30px 30px;background-color: rgba(0, 0, 0, 0.5);">
+            <div class="col-md-8 col-lg-8 order-md-1"
+                style="border-radius: 10px;padding: 30px 30px;background-color: rgba(0, 0, 0, 0.5);">
                 <h4 class="mb-3 text-warning">Billing address</h4>
-                <form name = "checkout">
+                <form name="checkout" method="post" action="confirm">
                     <div class="row ">
                         <div class="col-md-6 mb-3">
                             <label for="firstName" class="text-primary">First name</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" >
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder=""
+                                value="">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName" class="text-primary">Last name</label>
-                            <input type="text" class="form-control" id="lastName" name ="lastName" placeholder="" value="">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder=""
+                                value="">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -283,18 +239,18 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">+91</span>
                             </div>
-                            <input type="text" class="form-control" id="phone" name ="phone" placeholder="Phone">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
 
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="text-primary">Email</label>
-                        <input type="email" class="form-control" id="email" name ="email" placeholder="you@example.com">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
 
                     </div>
                     <div class="mb-3">
                         <label for="address" class="text-primary">Address</label>
-                        <input type="text" class="form-control" id="address" name ="address" placeholder="1234 Main St">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St">
 
                     </div>
                     <div class="row">
@@ -343,7 +299,7 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="pincode" class="text-primary">pincode</label>
-                            <input type="text" class="form-control" id="zip" name ="zip" placeholder="" >
+                            <input type="text" class="form-control" id="zip" name="zip" placeholder="">
                         </div>
                     </div>
                     <hr class="mb-4">
@@ -362,26 +318,28 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cc-name" class="text-primary">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" name ="cc-name" placeholder="" >
+                            <input type="text" class="form-control" id="cc-name" name="cc-name" placeholder="">
                             <small class="text-muted">Full name as displayed on card</small>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="cc-number" class="text-primary">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" name ="cc-number" placeholder="">
+                            <input type="text" class="form-control" id="cc-number" name="cc-number" placeholder="">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration" class="text-primary">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" name ="cc-expiration" placeholder="">
+                            <input type="text" class="form-control" id="cc-expiration" name="cc-expiration"
+                                placeholder="">
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="cc-expiration" class="text-primary">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" name ="cc-cvv" placeholder="">
+                            <input type="text" class="form-control" id="cc-cvv" name="cc-cvv" placeholder="">
                         </div>
                     </div>
                     <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit" id = "submitDetail" name = "submitDetail">Confirm Order</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitDetail"
+                        name="submitDetail">Confirm Order</button>
                 </form>
             </div>
         </div>
