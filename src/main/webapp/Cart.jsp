@@ -60,7 +60,7 @@
                                                             onclick="this.parentNode.querySelector('input[type=number]').stepDown();subquantity(${prod.id},${prod.price})"
                                                             class="minus btn btn-outline-primary"><i class="fa fa-minus"
                                                                 aria-hidden="true"></i></button>
-                                                        <input class="quantity input-number" min="0" name="quantity" id="quantity${prod.id}"
+                                                        <input disabled class="quantity input-number" min="0" name="quantity" id="quantity${prod.id}"
                                                             value="${prod.quantity}" type="number">
                                                         <button
                                                             onclick="this.parentNode.querySelector('input[type=number]').stepUp();addquantity(${prod.id},${prod.price})"
