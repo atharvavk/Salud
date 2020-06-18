@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <title>Checkout example for Bootstrap</title>
     <link rel="canonical" href="index.html">
     <!-- Bootstrap core CSS -->
@@ -37,6 +38,9 @@
                 var address = $('form[name = "checkout"] input[name="address"]').val();
 
                 var pin = $('form[name = "checkout"] input[name="zip"]').val();
+
+
+                var method = $('form[name = "checkout"] input[name="paymentMethod"]:checked').val();
 
                 var cc_number = $('form[name = "checkout"] input[name="cc-number"]').val();
 
@@ -118,16 +122,7 @@
 
 
 
-                if (cc_name.length === 0) {
-                    $('form[name="checkout"] input[name="cc-name"]').addClass(
-                        'is-invalid'
-                    );
-                    retval = true;
-                } else {
-                    $('form[name="checkout"] input[name="cc-name"]').addClass(
-                        'is-valid'
-                    );
-                }
+
 
 
 
@@ -144,49 +139,65 @@
                 }
 
 
-                if (cc_number.length === 19) {
-                    $('form[name="checkout"] input[name="cc-number"]').addClass(
-                        'is-valid'
-                    );
+                if (method === 'credit') {
+                    if (cc_name.length === 0) {
+                        $('form[name="checkout"] input[name="cc-name"]').addClass(
+                            'is-invalid'
+                        );
+                        retval = true;
+                    } else {
+                        $('form[name="checkout"] input[name="cc-name"]').addClass(
+                            'is-valid'
+                        );
+                    }
 
+
+                    if (cc_number.length === 19) {
+                        $('form[name="checkout"] input[name="cc-number"]').addClass(
+                            'is-valid'
+                        );
+
+                    } else {
+                        $('form[name="checkout"] input[name="cc-number"]').addClass(
+                            'is-invalid'
+                        );
+
+                        retval = true;
+                    }
+
+
+
+
+
+                    if (cc_cvv.length === 3) {
+                        $('form[name="checkout"] input[name="cc-cvv"]').addClass(
+                            'is-valid'
+                        );
+
+                    } else {
+                        $('form[name="checkout"] input[name="cc-cvv"]').addClass(
+                            'is-invalid'
+                        );
+
+                        retval = true;
+                    }
+
+
+
+                    if (cc_expire.length === 10) {
+                        $('form[name="checkout"] input[name="cc-expiration"]').addClass(
+                            'is-valid'
+                        );
+
+                    } else {
+                        $('form[name="checkout"] input[name="cc-expiration"]').addClass(
+                            'is-invalid'
+                        );
+
+                        retval = true;
+                    }
                 } else {
-                    $('form[name="checkout"] input[name="cc-number"]').addClass(
-                        'is-invalid'
-                    );
 
-                    retval = true;
-                }
-
-
-
-
-
-                if (cc_cvv.length === 3) {
-                    $('form[name="checkout"] input[name="cc-cvv"]').addClass(
-                        'is-valid'
-                    );
-
-                } else {
-                    $('form[name="checkout"] input[name="cc-cvv"]').addClass(
-                        'is-invalid'
-                    );
-
-                    retval = true;
-                }
-
-
-
-                if (cc_expire.length === 10) {
-                    $('form[name="checkout"] input[name="cc-expiration"]').addClass(
-                        'is-valid'
-                    );
-
-                } else {
-                    $('form[name="checkout"] input[name="cc-expiration"]').addClass(
-                        'is-invalid'
-                    );
-
-                    retval = true;
                 }
 
 
@@ -202,6 +213,7 @@
                 }
 
             });
+
         });
     </script>
 
@@ -306,12 +318,13 @@
                     <h4 class="mb-3 text-warning">Payment</h4>
                     <div class="d-block my-3">
                         <div class="custom-control custom-radio">
-                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked
-                                required>
+                            <input id="credit" name="paymentMethod" value="credit" type="radio"
+                                class="custom-control-input" checked required>
                             <label class="custom-control-label text-primary" for="credit">Credit card</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input id="cash" name="paymentMethod" type="radio" class="custom-control-input">
+                            <input id="cash" name="paymentMethod" value="cash" type="radio"
+                                class="custom-control-input">
                             <label class="custom-control-label text-primary" for="cash">cash</label>
                         </div>
                     </div>

@@ -15,12 +15,14 @@
 <body class="main-bg">
     <%@ include file="header.jsp"
     %>
+    <script src="assets/js/LiveSearch.js"></script>
     <section class="page-section">
         <div class="container">
             <form class="form-inline" method="get" action="livesearch">
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="search" class="sr-only">Search</label>
-                    <input type="text" class="form-control" id="search" name="search" placeholder="search any thing ....">
+                    <input type="text" class="form-control" id="search" name="search" onkeyup="showResult(this.value)" placeholder="search any thing ....">
+                    <div><datalist id="lis"></datalist></div>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Search</button>
             </form>
