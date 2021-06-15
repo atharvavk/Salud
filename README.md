@@ -8,4 +8,4 @@ Apache Tomcat <br/>
 MySQL<br/>
 
 ## Presentation:
-[a relative link](./presentation.pdf)
+[presentation link](./presentation.pdf)
