@@ -7,3 +7,5 @@ JSP <br/>
 Apache Tomcat <br/>
 MySQL<br/>
 
+## Presentation:
+[a relative link](./presentation.pdf)
